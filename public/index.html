@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verhoorkamer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <aside id="case-panel">
+        <h2 id="case-title">Dossier</h2>
+        <section>
+          <h3>Briefing</h3>
+          <p id="briefing"></p>
+        </section>
+        <section class="evidence-section">
+          <h3>Bewijs</h3>
+          <ul id="evidence-list"></ul>
+        </section>
+        <div id="case-actions">
+          <button id="accuse-btn" type="button">Beschuldig verdachte</button>
+          <button id="reset-btn" type="button">Nieuwe zaak</button>
+          <button id="export-btn" type="button">Exporteer chat</button>
+        </div>
+      </aside>
+
+      <main id="chat-panel">
+        <header id="suspect-header">
+          <span id="suspect-avatar"></span>
+          <div>
+            <div id="suspect-name"></div>
+            <div id="suspect-role"></div>
+          </div>
+        </header>
+        <div id="messages"></div>
+        <form id="chatForm">
+          <input
+            type="text"
+            id="messageInput"
+            placeholder="Stel je vraag..."
+            autocomplete="off"
+            required
+          />
+          <button type="submit">Verhoor</button>
+        </form>
+      </main>
+
+      <aside id="meters-panel">
+        <h3>Observatie</h3>
+        <div class="meter">
+          <label>Stress</label>
+          <div class="bar"><div id="stress-bar" class="fill stress"></div></div>
+          <span id="stress-value">–</span>
+        </div>
+        <div class="meter">
+          <label>Vertrouwen</label>
+          <div class="bar"><div id="trust-bar" class="fill trust"></div></div>
+          <span id="trust-value">–</span>
+        </div>
+        <div id="tokens-line"></div>
+      </aside>
+    </div>
+
+    <div id="accuse-modal" class="modal hidden">
+      <div class="modal-content">
+        <h3>Beschuldiging</h3>
+        <p>Acht je <span id="accuse-name"></span> schuldig of onschuldig?</p>
+        <div class="modal-buttons">
+          <button id="accuse-guilty">Schuldig</button>
+          <button id="accuse-innocent">Onschuldig</button>
+          <button id="accuse-cancel" type="button">Annuleer</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="verdict-modal" class="modal hidden">
+      <div class="modal-content">
+        <h3 id="verdict-title"></h3>
+        <p id="verdict-text"></p>
+        <button id="verdict-close">Sluiten</button>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
